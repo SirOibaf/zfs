@@ -118,7 +118,7 @@ read_hdr(dmu_replay_record_t *drr, zio_cksum_t *cksum)
 		    (longlong_t)saved_cksum.zc_word[1],
 		    (longlong_t)saved_cksum.zc_word[2],
 		    (longlong_t)saved_cksum.zc_word[3]);
-		return (0);
+		exit(1);
 	}
 	return (sizeof (*drr));
 }
@@ -431,6 +431,7 @@ zstream_do_dump(int argc, char *argv[])
 				    (long long unsigned int)pcksum.zc_word[1],
 				    (long long unsigned int)pcksum.zc_word[2],
 				    (long long unsigned int)pcksum.zc_word[3]);
+				exit(1);
 			}
 			(void) printf("END checksum = %llx/%llx/%llx/%llx\n",
 			    (long long unsigned int)
